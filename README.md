@@ -50,32 +50,32 @@ cheers Mark
 ===========
 ===========
 
-[b]Installation on Win:[/b]
+Installation on Win:
 
 1. Make sure your pc and the lemur are in the same wifi network.
 2. Download and install the Lemur Editor software from liine. https://liine.net/assets/files/lemur/Lemur-Installer-5.0.3.exe
 2. download + install loopMidi from here: http://www.tobias-erichsen.de/software/loopmidi.html
-3. create two midi ports, call them [b]loopMIDI Port IN[/b] and [b]loopMIDI Port IN[/b]
+3. create two midi ports, call them loopMIDI Port IN and loopMIDI Port IN
 4. open Lemur, hit the settings dialogue and set the Midi target for Midi 0 to the Ports we just created:
-[b]see pic here: [/b]https://www.dropbox.com/s/wykv5d3lxn950be/2014-09-12%2023.40.59.jpg?dl=0
+   see pic here: https://www.dropbox.com/s/wykv5d3lxn950be/2014-09-12%2023.40.59.jpg?dl=0
 5. Now open the deamon software wich comes bundled with the Lemur Editor: Lemur Deamon.exe 
 6. Make sure both of your created Midi Ports do show up there. If yes, everything is good!
-7. Now open up the [b]Lemur Editor: and see this pi[/b]c: [url=http://abload.de/image.php?img=lemur-editor-installjtuve.jpg][img]http://abload.de/thumb/lemur-editor-installjtuve.jpg[/img][/url]
+7. Now open up the Lemur Editor: and see this pic: http://abload.de/image.php?img=lemur-editor-installjtuve.jpg][img]http://abload.de/thumb/lemur-editor-installjtuve.jpg
 Step 1: open template, select Bitwig_Lemur.jzml
 Step 2: Hit the little play button, 
-Step3: a window appeares and shows your iPad, select it and connect.
+Step 3: a window appeares and shows your iPad, select it and connect.
            (if it does not show up, check this video please: https://www.youtube.com/watch?v=w5iY2mHUqaQ )
 
 8. Now navigate to your personal documents folder
-usually its: C:\Users\[b]yourname[/b]\Documents\Bitwig Studio\Controller Scripts
+usually its: C:\Users\yourname\Documents\Bitwig Studio\Controller Scripts
 9: Create a new folder there, call it liine or whatever you want to, and place the Lemur.control.js and the Datamanager.js into this folder.
-10. Finally open up Bitwig, go to preferences/controller and hit Detect for available controllers. This can take a few seconds so be patient.
+10. Finally open up Bitwig, go to preferences/controller and hit Detect for available controllers. This can take a few seconds so pls be patient.
 
 The Lemur controller shows up correctly, and you can start using it. If any problems appear during installation, please refer to wich step ..
 
 cheers
 
 
-[b]Installation on Mac:[/b]
+Installation on Mac:
 
 tomorrow...
