@@ -76,7 +76,12 @@ For discussion or help, please refer to this thread on
 KVR: http://www.kvraudio.com/forum/viewtopic.php?f=259&t=420303&p=5873588#p5873588
 
 Installation on Mac:
+<<<<<<< HEAD
 tomorrow.../**
+=======
+tomorrow...
+    /**
+>>>>>>> 6b466587e84198bd60e22779b50c03f194ff781d
      * Created by Suloo on 13.09.2014.
      */
 
