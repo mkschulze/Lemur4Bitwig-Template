@@ -35,6 +35,8 @@ To be done:
 5. hopefully a waveform display for the macro and map pages.
 6. various visual eye candy improvements.
 
+===========
+1. Clip Launcher acting a little weird right now, will sonn be fixed.
 
 have fun!
 
