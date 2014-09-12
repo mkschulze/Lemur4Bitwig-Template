@@ -36,7 +36,12 @@ To be done:
 6. various visual eye candy improvements.
 
 ===========
-1. Clip Launcher acting a little weird right now, will sonn be fixed.
+
+Known issues:
+
+1. Clip Launcher acting a little weird right now, will sonn be fixed. (version 1)
+
+===========
 
 have fun!
 
