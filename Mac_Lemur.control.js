@@ -10,7 +10,7 @@
  */
 
 loadAPI(1);
-load ("DataManager.js");
+//load ("DataManager.js");
 
 host.defineController("liine", "Lemur", "1.0", "434bb2e0-3932-11e4-916c-0800200c9a66");
 host.defineMidiPorts(1, 1);
@@ -364,7 +364,7 @@ function flush()
         var trackName = data.getTrackName(changedIndex);
         println("track " + changedIndex + " changed name to " + trackName);
     }
-     data.clearChanges();
+     data.clearChanges();*/
 
 }
 
