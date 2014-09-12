@@ -7,7 +7,7 @@ Lemur Controller Script v. 1
 
 This script is fully based on the touchOSC controller script by Thomas Helzle (http://www.screendream.de/)
 from Bitwig, thanks for that!
-The Datamanager.js is done by by Drew Meyer  http://www.sub-version.net ,thanks for that!
+The Datamanager.js is done by Drew Meyer  http://www.sub-version.net ,thanks for that!
 
 It is supposed to provide nice functionality with Bitwig Studio 1.0.13.
 According to new updates from Bitwig, this script will also be updated and extended.
