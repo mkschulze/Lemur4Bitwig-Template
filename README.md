@@ -86,6 +86,8 @@ Installation on Mac:
 6. Start Bitwig and search for detectable controllers
 
 Now you should be ready to go! Have Fun!
+
+cheers Mark
 =======
 
 
