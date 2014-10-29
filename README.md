@@ -87,7 +87,7 @@ Installation on Mac:
 
 Now you should be ready to go! Have Fun!
 
-cheers Mark
+
 =======
 
 
