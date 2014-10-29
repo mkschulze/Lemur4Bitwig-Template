@@ -261,7 +261,7 @@ function init()
         }
     });
 
-    // Pheww, that was a lot of Boilerplate ;-)
+
 
 }
 

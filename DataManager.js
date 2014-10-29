@@ -28,7 +28,7 @@
 // changes.clipNames, changes.clipColors, changes.clipPlayingStatuses, changes.clipQueuedStatuses
 
 
-// These indicies can then be used to request the updated data from flush() in .control.js.
+// These indicies can then be used to request the updated data from flush() in .control.js. 29.10.2014
 
 /*
  function flush() {
