@@ -5,13 +5,13 @@
 
 // DataManager stores information collected from observers, and lets you access the data with static indicies, independently of bank offsets.
 // For example, getTrackName(0) will always return the name of the first track in your set.
-//printMidi(status, data1, data2);
+
 
 // Currently, this module allows access to the following information:
 // Track and scene count (filters unused tracks/scenes in the bank), track name, track color, track mute status, track solo status, scene name, clip name, clip color, clip playing status, clip queued status.
 
 
-// DataManager also collects wh ich data has changed in your set, giving better control over observers and how the changes are handled.
+// DataManager also collects which data has changed in your set, giving better control over observers and how the changes are handled.
 // This allows you to control the order that changes are handled, ignore changes that aren't needed, and limit the amount of feedback created by observers.
 // The function getChanges() is designed to be called by flush(), followed by a call to clearChanges().  It returns an object with indicies of what's changed.
 
@@ -28,7 +28,7 @@
 // changes.clipNames, changes.clipColors, changes.clipPlayingStatuses, changes.clipQueuedStatuses
 
 
-// These indicies can then be used to request the updated data from flush() in .control.js. 29.10.2014
+// These indicies can then be used to request the updated data from flush() in .control.js.
 
 /*
  function flush() {
@@ -66,7 +66,6 @@ var clipNames = [];
 var clipColors = [];
 var clipPlayingStatuses = [];
 var clipQueuedStatuses = [];
-var MAX_PACKET_LENGTH = [];
 
 function DataManager(maximumTracks, maximumScenes) {
     var self = this;
@@ -112,7 +111,7 @@ function DataManager(maximumTracks, maximumScenes) {
     }
     for (var trackIndex = 0; trackIndex < maximumTracks; trackIndex++) {
         var track = bank.getTrack(trackIndex);
-        track.addNameObserver(MAX_PACKET_LENGTH, "", makeNameIndexFunction(trackIndex, function(index, name) {
+        track.addNameObserver(250, "", makeNameIndexFunction(trackIndex, function(index, name) {
             if (self.enableListeners) {
                 if (trackNames[index] != name) {
                     changes.trackNames.push(index);
@@ -270,7 +269,6 @@ function DataManager(maximumTracks, maximumScenes) {
 }
 
 function filterChanges() {
-    println("filter changes");
     changes.trackNames = changes.trackNames.filter(function(item) {
         return (item < trackCount);
     });
