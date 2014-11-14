@@ -14,7 +14,7 @@ load ("DataManager.js");
 
 host.defineController("liine", "Lemur", "1.0", "434bb2e0-3932-11e4-916c-0800200c9a66");
 host.defineMidiPorts(1, 1);
-host.addDeviceNameBasedDiscoveryPair(["Deamon Input 0"], ["Deamon Output 0"]);
+host.addDeviceNameBasedDiscoveryPair(["Daemon Input 0"], ["Daemon Output 0"]);
 
 // Main variable:
 var lem;
