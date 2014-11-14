@@ -82,7 +82,7 @@ Installation on Mac:
 2. Download and install the Lemur Editor software from liine. https://liine.net/en/downloads/lemur
 3. Open the Daemon software, create two ports:  "Daemon Output 0" and "Daemon Input 0" (excl. "")
 4. Create the Midi targets on the iPad Lemur Settings after loading the template for the Lemur (s.o.)
-5. Put the Mac_Lemur.control.js and the DataManager.js to -/documents/Bitwig Studio/Controller Scripts/Liine
+5. Put the Lemur.control.js and the DataManager.js to -/documents/Bitwig Studio/Controller Scripts/Liine
 6. Start Bitwig and search for detectable controllers
 
 Now you should be ready to go! Have Fun!
