@@ -16,9 +16,15 @@ host.defineController("liine", "Lemur", "1.0", "434bb2e0-3932-11e4-916c-0800200c
 host.defineMidiPorts(1, 1);
 host.addDeviceNameBasedDiscoveryPair(["Daemon Input 0"], ["Daemon Output 0"]);
 
+/////////////////////////////////////////////////////////////////////////////////////////
+
 // Main variable:
 var lem;
+var data;
+var LOWEST_CC = 1;
+var HIGHEST_CC = 119;
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
 // Main Constructor where all the basics are set up:
 function Lemur() {
@@ -38,6 +44,7 @@ function Lemur() {
     // Midi Ports:
     this.midiInKeys = host.getMidiInPort(0).createNoteInput("Lemur Keys", "?0????");
     this.midiInPads = host.getMidiInPort(0).createNoteInput("Lemur Pads", "?9????");
+
     // Disable the consuming of events by the NoteInputs, so they are also available for mapping
     this.midiInKeys.setShouldConsumeEvents(false);
     this.midiInPads.setShouldConsumeEvents(false);
@@ -51,7 +58,9 @@ function Lemur() {
     // Transport States:
     this.isPlaying = false;
     this.isRecording = false;
+    this.isLoopActive = false;
     this.isOverdubEnabled = false;
+    this.isWritingArrangerAutomationEnabled = false;
     this.transpHasChanged = true;
 
     // Tracks:
@@ -126,8 +135,8 @@ function Lemur() {
     this.cTrack = host.createCursorTrack(1, 0);
     this.cDevice = lem.cTrack.getPrimaryDevice();
     this.uMap = host.createUserControls(8);
-    this.cClipWindow = host.createTrackBank(5, 0, 9);
-    this.cScenes = lem.cClipWindow.getClipLauncherScenes();
+    //this.cClipWindow = host.createTrackBank(6, 0, 5);
+    //this.cScenes = lem.cClipWindow.getClipLauncherScenes();
 
     this.cMacro = [];
     this.cPage = [];
@@ -137,9 +146,30 @@ function Lemur() {
 }
 
 
+
 function init()
 {
+
+    // Make CCs 2-119 freely mappable for all 16 Channels
+    userControls = host.createUserControlsSection((HIGHEST_CC - LOWEST_CC + 1)*16);
+
+
+    for(var i=LOWEST_CC; i<=HIGHEST_CC; i++)
+    {
+        for (var j=1; j<=16; j++) {
+            // Create the index variable c
+            var c = i - LOWEST_CC + (j-1) * (HIGHEST_CC-LOWEST_CC+1);
+            // Set a label/name for each userControl
+            userControls.getControl(c).setLabel("CC " + i + " - Channel " + j);
+        }
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////
+
+
     data = new DataManager(128, 1024);
+    enableListeners = true;
+
+    /////////////////////////////////////////////////////////////////////////////////////////
 
     // instantiate a new Lemur Object:
     new Lemur()
@@ -154,29 +184,36 @@ function init()
         lem.isRecording = on;
         lem.transpHasChanged = true;
     });
+    lem.transport.addIsLoopActiveObserver(function(on){
+        lem.isLoopActive = on;
+        lem.transpHasChanged = true;
+    });
     lem.transport.addOverdubObserver(function(on){
         lem.isOverdubEnabled = on;
         lem.transpHasChanged = true;
     });
-
+    lem.transport.addIsWritingArrangerAutomationObserver(function(on){
+        lem.isWritingArrangerAutomationEnabled = on;
+        lem.transpHasChanged = true;
+    });
     lem.masterTrack.getVolume().setIndication(true);
 
     lem.masterTrack.getVolume().addValueObserver(128, function(volume){
         lem.masterVolume = volume;
         lem.masterVolumeHasChanged = true;
-    })
+    });
 
-    for (var j=0; j<5; j++) {
-        lem.cClipTrack[j] = lem.cClipWindow.getTrack(j);
-        lem.cSlots[j] = lem.cClipTrack[j].getClipLauncherSlots();
-        lem.cSlots[j].setIndication(true);
-        lem.cSlots[j].addIsPlayingObserver(getClipValueFunc(j, lem.clIsPlaying));
-        lem.cSlots[j].addIsRecordingObserver(getClipValueFunc(j, lem.clIsRecording));
-        lem.cSlots[j].addIsQueuedObserver(getClipValueFunc(j, lem.clIsQueued));
-        lem.cSlots[j].addHasContentObserver(getClipValueFunc(j, lem.clHasContent));
+    for (var j=0; j<6; j++) {
+        //lem.cClipTrack[j] = lem.cClipWindow.getTrack(j);
+        //lem.cSlots[j] = lem.cClipTrack[j].getClipLauncherSlots();
+        //lem.cSlots[j].setIndication(true);
+        //lem.cSlots[j].addIsPlayingObserver(getClipValueFunc(j, lem.clIsPlaying));
+        //lem.cSlots[j].addIsRecordingObserver(getClipValueFunc(j, lem.clIsRecording));
+        //lem.cSlots[j].addIsQueuedObserver(getClipValueFunc(j, lem.clIsQueued));
+        //lem.cSlots[j].addHasContentObserver(getClipValueFunc(j, lem.clHasContent));
     }
 
-    for (var i=0; i<8; i++) {
+    for (var i=0; i<5; i++) {
         // Volume
         lem.tracks.getTrack(i).getVolume().setIndication(true);
         lem.tracks.getTrack(i).getVolume().addValueObserver(127, getTrackValueFunc(i, lem.trackVolume, lem.trackVolumeHasChanged));
@@ -195,7 +232,7 @@ function init()
         lem.uMap.getControl(i).setLabel("XY Pad " + (Math.ceil(i/2+0.2)) + " - " + ((i%2<1) ? "X":"Y"))
         lem.uMap.getControl(i).addValueObserver(127, getTrackValueFunc(i, lem.xyPad, lem.xyPadHasChanged));
         // Clips
-        for(var k=0; k<4; k++) {
+        for(var k=0; k<6; k++) {
 
         }
 
@@ -268,14 +305,33 @@ function init()
 // Updates the controller in an orderly manner when needed
 // so that LEDs, Motors etc. react to changes in the Software
 // without drowning the Controller with data
+
 function flush()
 {
-    // Check if transport has changed and if yes, update all of the controlls:
+
+
+    var changes = data.getChanges();
+    //println("len: " + changes.trackMuteStatuses.length);
+    for (var index = 0; index < changes.trackMuteStatuses.length; index++);{
+    var indexOfTrackThatHasMuteStatusChanged = changes.trackMuteStatuses[index];
+    var muteStatusOfTrackThatHasMuteStatusChanged = data.getTrackMuteStatus(indexOfTrackThatHasMuteStatusChanged);
+}//println("track number " + indexOfTrackThatHasMuteStatusChanged + " mute status has changed to " + muteStatusOfTrackThatHasMuteStatusChanged);
+
+
+    data.clearChanges();
+
+
+
+
+
+// Check if transport has changed and if yes, update all of the controlls:
     if (lem.transpHasChanged) {
         sendChannelController(0, 118, lem.isPlaying ? 127 : 0);
         sendChannelController(0, 117, lem.isPlaying ? 0 : 127);
         sendChannelController(0, 119, lem.isRecording ? 127 : 0);
+        sendChannelController(0, 113, lem.isLoopActive ? 127 : 0);
         sendChannelController(0, 114, lem.isOverdubEnabled ? 127 : 0);
+        sendChannelController(0, 112, lem.isWritingArrangerAutomationEnabled ? 127 : 0);
         lem.transpHasChanged = false;
     }
     // Update the Master Volume if it has changed:
@@ -309,69 +365,26 @@ function flush()
             lem.xyPadHasChanged[k] = false;
         }
         // Add another 4 step Loop for the Clip Launcher Grid:
-        for(var m=0; m<4; m++) {
-            host.getMidiOutPort(0).sendMidi(146, m+k*4, lem.clColor[m+k*4]);
-            host.getMidiOutPort(0).sendMidi(145, m+k*4, (lem.clBright[m+k*4]) ? 1 : 0);
+        /*for(var m=0; m<6; m++) {
+            host.getMidiOutPort(0).sendMidi(146, m+k*6, lem.clColor[m+k*6]);
+            host.getMidiOutPort(0).sendMidi(145, m+k*6, (lem.clBright[m+k*6]) ? 1 : 0);
             //println(lem.clColor[m+k*4]);
-        }
+        }*/
     }
-    var changes = data.getChanges();
-     if (changes.trackCount < 0) {
-     bufferSysexMessage(getRemoveTracksMessage(-changes.trackCount));
-     }
-     else if (changes.trackCount > 0) {
-     bufferSysexMessage(getAddTracksMessage(changes.trackCount));
-     }
-     if (changes.sceneCount < 0) {
-     bufferSysexMessage(getRemoveScenesMessage(-changes.sceneCount));
-     }
-     else if (changes.sceneCount > 0) {
-     bufferSysexMessage(getAddScenesMessage(changes.sceneCount));
-     }
-     /*for (var index = 0; index < changes.trackNames.length; index++) {
-     bufferSysexMessage(getTrackNameMessage(changes.trackNames[index], data.getTrackName(changes.trackNames[index])));
-     }*/
-     for (var index = 0; index < changes.trackColors.length; index++) {
-     bufferSysexMessage(getTrackColorMessage(changes.trackColors[index], data.getTrackColor(changes.trackColors[index])));
-     }
-     for (var index = 0; index < changes.trackMuteStatuses.length; index++) {
-     bufferSysexMessage(getTrackMuteStatusMessage(changes.trackMuteStatuses[index], data.getTrackMuteStatus(changes.trackMuteStatuses[index])));
-     }
-     for (var index = 0; index < changes.trackSoloStatuses.length; index++) {
-     bufferSysexMessage(getTrackSoloStatusMessage(changes.trackSoloStatuses[index], data.getTrackSoloStatus(changes.trackSoloStatuses[index])));
-     }
-     for (var index = 0; index < changes.sceneNames.length; index++) {
-     bufferSysexMessage(getSceneNameMessage(changes.sceneNames[index], data.getSceneName(changes.sceneNames[index])));
-     }
-     for (var index = 0; index < changes.clipNames.length; index++) {
-     var clipNameChange = changes.clipNames[index];
-     bufferSysexMessage(getClipNameMessage(clipNameChange[0], clipNameChange[1], data.getClipName(clipNameChange[0], clipNameChange[1])));
-     }
-     for (var index = 0; index < changes.clipColors.length; index++) {
-     var clipColorChange = changes.clipColors[index];
-     bufferSysexMessage(getClipColorMessage(clipColorChange[0], clipColorChange[1], data.getClipColor(clipColorChange[0], clipColorChange[1])));
-     }
-     for (var index = 0; index < changes.clipPlayingStatuses.length; index++) {
-     var clipPlayingStatusChange = changes.clipPlayingStatuses[index];
-     bufferSysexMessage(getClipPlayingStatusMessage(clipPlayingStatusChange[0], clipPlayingStatusChange[1], data.getClipPlayingStatus(clipPlayingStatusChange[0], clipPlayingStatusChange[1])));
-     }
-     for (var index = 0; index < changes.clipQueuedStatuses.length; index++) {
-     var clipQueuedStatusChange = changes.clipQueuedStatuses[index];
-     bufferSysexMessage(getClipQueuedStatusMessage(clipQueuedStatusChange[0], clipQueuedStatusChange[1], data.getClipQueuedStatus(clipQueuedStatusChange[0], clipQueuedStatusChange[1])));
-     }
-    for (var index = 0; index < changes.trackNames.length; index++) {
-        var changedIndex = changes.trackNames[index];
-        var trackName = data.getTrackName(changedIndex);
-        println("track " + changedIndex + " changed name to " + trackName);
-    }
-     data.clearChanges();
 
 }
+
+
+
+
+
+
+
 
 // React to incoming MIDI:
 function onMidi(status, data1, data2)
 {
-    //printMidi(status, data1, data2);
+    printMidi(status, data1, data2);
 
     // Check if it's CC values:
     if (isChannelController(status))
@@ -416,7 +429,7 @@ function onMidi(status, data1, data2)
                 case 100:
                     lem.tracks.scrollTracksDown();
                     break;
-                case 29:
+                case 39:
                     lem.cTrack.selectPrevious();
                     lem.trackHasChanged = true;
                     break;
@@ -492,7 +505,7 @@ function onMidi(status, data1, data2)
                         setNoteTable(lem.midiInPads, lem.padTranslation, lem.padOffset);
                     }
                     break;
-                case 57:
+                /*case 57:
                     lem.cClipWindow.scrollTracksUp();
                     break;
                 case 58:
@@ -504,11 +517,15 @@ function onMidi(status, data1, data2)
                 case 60:
                     lem.cClipWindow.scrollScenesDown();
                     break;
-                case 117:
+*/                case 117:
                     lem.transport.stop();
                     break;
                 case 118:
                     lem.transport.play();
+                    break;
+
+                case 112:
+                    lem.transport.toggleWriteArrangerAutomation();
                     break;
                 case 113:
                     lem.transport.toggleLoop();
@@ -519,8 +536,63 @@ function onMidi(status, data1, data2)
                 case 114:
                     lem.transport.toggleOverdub();
                     break;
+
+                // Toggle Solo/Mute
+
+                case 80:
+                    lem.tracks.getTrack(0).getSolo().toggle();
+                    break;
+                case 81:
+                    lem.tracks.getTrack(0).getMute().toggle();
+                    break;
+                case 82:
+                    lem.tracks.getTrack(1).getSolo().toggle();
+                    break;
+                case 83:
+                    lem.tracks.getTrack(1).getMute().toggle();
+                    break;
+                case 84:
+                    lem.tracks.getTrack(2).getSolo().toggle();
+                    break;
+                case 85:
+                    lem.tracks.getTrack(2).getMute().toggle();
+                    break;
+                case 86:
+                    lem.tracks.getTrack(3).getSolo().toggle();
+                    break;
+                case 87:
+                    lem.tracks.getTrack(3).getMute().toggle();
+                    break;
+                case 88:
+                    lem.tracks.getTrack(4).getSolo().toggle();
+                    break;
+                case 89:
+                    lem.tracks.getTrack(4).getMute().toggle();
+                    break;
+                case 90:
+                    lem.tracks.getTrack(5).getSolo().toggle();
+                    break;
+                case 61:
+                    lem.tracks.getTrack(5).getMute().toggle();
+                    break;
+                case 62:
+                    lem.tracks.getTrack(6).getSolo().toggle();
+                    break;
+                case 63:
+                    lem.tracks.getTrack(6).getMute().toggle();
+                    break;
+                case 64:
+                    lem.tracks.getTrack(7).getSolo().toggle();
+                    break;
+                case 65:
+                    lem.tracks.getTrack(7).getMute().toggle();
+                    break;
+
+
             }
         }
+
+
         else {
             // hack to get the Lemur buttons to light up correctly.
             // Many Controllers overwrite their own lights on buttons when the button is
@@ -528,24 +600,29 @@ function onMidi(status, data1, data2)
             lem.transpHasChanged = true;
         }
     }
-    // Now checking for some Note-On Commands I use for the Cliplauncher. First the Scenes:
-    else if (isNoteOnC2(status)) {
-        if (data1 >=100 && data1 < 108) {
+}
+
+
+// Now checking for some Note-On Commands I use for the Cliplauncher. First the Scenes:
+    /*else if (isNoteOnC2(status)) {
+        if (data1 >=100 && data1 < 105) {
             lem.cScenes.launch(data1-100);
         }
         // and then for the Clip Matrix:
         else if (data1 >=0 && data1 <32) {
             // If the clip is Playing or Queued, Stop it:
             if (lem.clIsPlaying[data1] || lem.clIsQueued[data1]) {
-                lem.cClipTrack[data1%4].getClipLauncherSlots().stop();
+                lem.cClipTrack[data1%6].getClipLauncherSlots().stop();
             }
             // otherwise launch it:
             else{
-                lem.cClipTrack[data1%4].getClipLauncherSlots().launch(Math.floor(data1*0.25));
-            }
+                lem.cClipTrack[data1%6].getClipLauncherSlots().launch(Math.floor(data1*0.25));
+            }//println("what's this: " + 5);
         }
-    }
-}
+     }*/
+
+
+//bank.getTrack(trackIndex).getClipLauncherSlots().launch(sceneIndex);
 
 function onSysex(data)
 {
