@@ -1,6 +1,6 @@
 <JZML>
 <PROJECT version="5200" width="1024" height="724" osc_target="0" midi_target="-1" kbmouse_target="-1" skin="Classic"/>
-<WINDOW class="JAZZINTERFACE" text="01. Mixer" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="01. Mixer" x="0" y="0" width="1024" height="724" state="0" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Mixer" x="0" y="0" width="1024" height="724" id="1" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" tabbar="1" meta="0">
 <WINDOW class="CustomButton" text="StopButton" x="0" y="0" width="100" height="100" id="18" state="241" group="3" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="1,1" capture="1" color="1596013,8336134" label_off="Stop" label_on="Stop" outline="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/stop" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,117,117" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -2294,7 +2294,7 @@ if (a==red)
 </WINDOW>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="06. XY Pads" x="0" y="0" width="1024" height="724" id="6" state="0" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="06. XY Pads" x="0" y="0" width="1024" height="724" id="6" state="1" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="XYContainer" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" tabbar="1" meta="0">
 <WINDOW class="Container" text="Mapping" x="0" y="639" width="1008" height="69" id="2" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" label="1" tabbar="1" meta="0">
 <WINDOW class="Text" text="Pad4Textfield" x="764" y="1" width="65" height="53" state="241" group="0" font="tahoma,14,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="1596013" content="PAD 4">
@@ -2404,18 +2404,6 @@ if (a==red)
 <VARIABLE name="holdY=0" send="0" osc_target="0" osc_trigger="1" osc_message="/XYContainer/PadsContainer/Pad3/holdY" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 </WINDOW>
-</WINDOW>
-</WINDOW>
-<WINDOW class="JAZZINTERFACE" text="Colormixer" x="0" y="0" width="1024" height="724" id="7" state="0" group="0" font="tahoma,11,0" >
-<WINDOW class="Switches" text="switch" x="371" y="548" width="60" height="60" id="607" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="865343,1596013" column="1" label="1" multicolor="0" multilabel="0" paint="0" radio="0" row="1">
-<PARAM name="x=" value="1.000000" send="25" osc_target="0" osc_trigger="1" osc_message="/Switches/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,5,5" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/switch/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="switch()" script="if (switch.x == 1) {
-show(testx,1);
-}else if (switch.x == 0){
-show(testx,0);
-}
-" trigger_script="switch.x" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/switch/switch" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
 </WINDOW>
 </WINDOW>
 </JZML>
