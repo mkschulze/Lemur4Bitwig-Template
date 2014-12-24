@@ -22,6 +22,7 @@ Current features:
 5. Pad page, 16x Drum Pads, with transport-> Bitwig style. :)
 6. Keys page, simple keys with transpose.
 7. X/Y page, 4x X/Y pad for various applications.
+8. Nexus version.
 
 
 ===========
@@ -29,9 +30,8 @@ Current features:
 To be done:
 
 1. implementing full kinda push functionality
-2. Nexus resolution support
-3. finalizing everything
-4. improve on that :)
+2. finalizing everything
+3. improve on that :)
 
 
 have fun!
