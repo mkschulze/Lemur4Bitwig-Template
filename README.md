@@ -1,7 +1,7 @@
 liine_Lemur
 ===========
 
-Lemur Controller Script .1 Up (Beta2)
+Lemur Controller Script .1 Up (Beta4)
 
 ===========
 
@@ -14,14 +14,15 @@ The template is not fully supporting every single feature that is already availa
 
 Current features:
 
-1. Mixer page, with track & master volume faders, panorama control and transport.
-2. Macro control page, control 8 macros with device selection, preset- /category- / and creatorswitch.
-3. Map page, control 8 parameter of a device, with map selection and track- / devicechange.
-4. Clip Launcher page, control bank with 5x8 selector and navigation.
+1. Mixer page, with track & master volume faders, transport, track/bank selection, mute/solo/rec, crossfades, tempo,
+   track activation, panel modes, arranger modes, mixer modes, add tracks, metronome.
+2. Device control page, device/common/user/direct/sends mode, load preset- /category- / and creatorswitch.
+3. Clip Launcher page, control bank with 8x8 selector and navigation, color feedback, isPlaying feedback and 
+   hasContent feedback. Also a basic transport and mixer floating window.
 5. Pad page, 16x Drum Pads, with transport-> Bitwig style. :)
 6. Keys page, simple keys with transpose.
 7. X/Y page, 4x X/Y pad for various applications.
-8. and a lot more
+
 
 ===========
 
@@ -46,6 +47,9 @@ Grab the script by Moss here: https://github.com/git-moss/OSC4Bitwig
 Put it into your controler script folder.
 Go to the Bitwig preferences and add the OSC4Bitwig script.
 Type in your device IP and Portnumber 8000.
+See screenshot: https://www.dropbox.com/s/sz1w5xz0bytf0az/Bildschirmfoto%202014-12-04%20um%2011.27.19.png?dl=0
+In Lemur, type in your host IP as OSC Target 0 and port 8000.
+See Screenshot: https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0
 Done!
 
 
