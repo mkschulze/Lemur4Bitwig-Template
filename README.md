@@ -1,38 +1,39 @@
 liine_Lemur
 ===========
 
-Lemur Controller Script .1 Up (Beta4)
+Lemur4Bitwig Template .1 Up (Beta5)
 
 ===========
 
-Good Times for everyone using my template so far, Moss (push4Bitwig) took over the scripting part for my Lemur template
-with the OSC4Bitwig control script. Now we work together to build up on this.
-Make sure to grab his script over at his GitHub repo.
-The template is not fully supporting every single feature that is already available in the script, but it will soon.
+Next round for the new Lemur4Bitwig template. This time we got a brand new cliplauncher made in a unified Bitwig design
+based on canvas. Due to the team up with Voice303, who is kindly lemurizing the OSC4Bitwig script by Moss and shares
+his skills on canvas for us, we will see further objects coming. There is also a new XY performance page and 
+a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Breath/Expression and After Touch control
+and a few user request to the device page.
+
+
 
 ===========
 
 Current features:
 
 1. Mixer page, with track & master volume faders, transport, track/bank selection, mute/solo/rec, crossfades, tempo,
-   track activation, panel modes, arranger modes, mixer modes, add tracks, metronome.
-2. Device control page, device/common/user/direct/sends mode, load preset- /category- / and creatorswitch.
-3. Clip Launcher page, control bank with 8x8 selector and navigation, color feedback, isPlaying feedback and 
-   hasContent feedback. Also a basic transport and mixer floating window.
-5. Pad page, 16x Drum Pads, with transport-> Bitwig style. :)
-6. Keys page, simple keys with transpose.
-7. X/Y page, 4x X/Y pad for various applications.
-8. Nexus version.
+   track activation, panel modes, arranger modes, mixer modes, add tracks, metronome
+2. Device page, device/common/user/direct/sends mode, load preset- /category- and creator switch, vst open/close
+3. Totally new Clip Launcher page!
+5. Pad page, 16x Drum Pads
+6. Keys page, Modwheel/Pitchbend/Breath/Expression/After Touch with friction and tension control using Lemur physics
+7. X/Y page, now with Lemur physics control and special note pads
+
 
 
 ===========
 
-To be done:
+To be done before full release:
 
-1. implementing full kinda push functionality
-2. finalizing everything
-3. improve on that :)
-
+1. New Drumpad page
+2. Nexus Version
+3. Tutorial video
 
 have fun!
 
@@ -43,13 +44,13 @@ cheers Mark
 
 Installation on Win/Mac/Linux:
 
-Grab the script by Moss here: https://github.com/git-moss/OSC4Bitwig
-Put it into your controler script folder.
-Go to the Bitwig preferences and add the OSC4Bitwig script.
-Type in your device IP and Portnumber 8000.
-See screenshot: https://www.dropbox.com/s/sz1w5xz0bytf0az/Bildschirmfoto%202014-12-04%20um%2011.27.19.png?dl=0
-In Lemur, type in your host IP as OSC Target 0 and port 8000.
-See Screenshot: https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0
+1. Grab the script by Voice 303 here: https://github.com/csvance/Lemur4Bitwig
+2. Put it into your controler script folder.
+3. Go to the Bitwig preferences and add Liine Lemur script.
+4. Type in your device (iPad/Android) IP and Portnumber 8000.
+5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
+   See Screenshot: https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0
+6. Restart Bitwig
 Done!
 
 
