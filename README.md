@@ -46,7 +46,8 @@ Installation on Win/Mac/Linux:
 2. Put it into your controler script folder.
 3. Go to the Bitwig preferences and add Liine Lemur script, make sure to delete the Open Sound Control setup, if you 
    previously used the OSC4Bitwig script.
-4. Type in your device (iPad/Android) IP and Portnumber 8000.
+4. Type in your device (iPad/Android) IP and Portnumber 8000, see screenshot: 
+   https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/Lemur-Setup.png
 5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
    See Screenshot: https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0
 6. Restart Bitwig
