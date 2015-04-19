@@ -57,7 +57,8 @@ Done!
 
 
 For discussion or help, please refer to this thread on 
-KVR: http://www.kvraudio.com/forum/viewtopic.php?f=259&t=420303&p=5873588#p5873588
+KVR:  <a href="http://www.kvraudio.com/forum/viewtopic.php?f=259&t=420303&p=5873588#p5873588">here</a>
+ 
 
 
 
