@@ -1,9 +1,7 @@
-liine_Lemur
-===========
-
 Lemur4Bitwig Template .1 Up (Beta5)
-
 ===========
+
+
 
 Next round for the new Lemur4Bitwig template. This time we got a brand new cliplauncher made in a unified Bitwig design
 based on canvas. Due to the team up with Voice303, who is kindly lemurizing the OSC4Bitwig script by Moss and shares
