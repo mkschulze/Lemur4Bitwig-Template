@@ -11,7 +11,7 @@
 <VARIABLE name="light=0.5" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/LoopButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="PlayButton" x="104" y="0" width="100" height="100" id="20" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="6,6" capture="1" color="4545663,8336134" label_off="Play" label_on="Play" outline="1">
-<PARAM name="x=" value="1.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/play" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,118,118" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/play" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,118,118" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/PlayButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="RecButton" x="208" y="0" width="100" height="100" id="21" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="2,3" capture="1" color="4545663,8388608" label_off="Record" label_on="Record" outline="1">
@@ -77,118 +77,14 @@
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader1" x="0" y="370" width="100" height="340" id="101" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7352904" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.598425" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.475120" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="8" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader1/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader1/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader1/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader1, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader1, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader1, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader1, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader1, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader1, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader1, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader1, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader1, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader1, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader1, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader1, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader1, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader1, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader1, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader1, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader1, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader1, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader1, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader1, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader1, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader1, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader1, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader1, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader1, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader1, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/1/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader1, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));
+" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/1/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader2" x="104" y="370" width="100" height="340" id="102" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7680043" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.543307" send="29" osc_target="0" osc_trigger="1" osc_message="/track/2/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,102,102" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -197,112 +93,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader2/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader2/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader2/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader2, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader2, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader2, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader2, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader2, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader2, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader2, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader2, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader2, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader2, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader2, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader2, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader2, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader2, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader2, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader2, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader2, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader2, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader2, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader2, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader2, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader2, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader2, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader2, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader2, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader2, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/2/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader2, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/2/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader3" x="208" y="370" width="100" height="340" id="103" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="6109815" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.299213" send="29" osc_target="0" osc_trigger="1" osc_message="/track/3/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,103,103" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -311,112 +102,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader3/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader3/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader3/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader3, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader3, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader3, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader3, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader3, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader3, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader3, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader3, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader3, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader3, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader3, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader3, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader3, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader3, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader3, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader3, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader3, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader3, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader3, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader3, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader3, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader3, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader3, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader3, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader3, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader3, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/3/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader3, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/3/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader4" x="312" y="370" width="100" height="340" id="104" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7428902" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.464567" send="29" osc_target="0" osc_trigger="1" osc_message="/track/4/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,104,104" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -425,112 +111,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader4/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader4/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader4/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader4, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader4, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader4, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader4, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader4, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader4, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader4, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader4, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader4, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader4, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader4, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader4, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader4, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader4, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader4, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader4, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader4, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader4, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader4, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader4, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader4, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader4, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader4, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader4, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader4, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader4, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/4/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader4, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/4/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader5" x="416" y="370" width="100" height="340" id="105" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="5201701" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.598425" send="29" osc_target="0" osc_trigger="1" osc_message="/track/5/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,105,105" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -539,112 +120,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader5/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader5/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader5/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader5, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader5, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader5, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader5, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader5, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader5, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader5, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader5, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader5, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader5, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader5, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader5, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader5, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader5, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader5, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader5, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader5, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader5, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader5, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader5, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader5, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader5, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader5, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader5, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader5, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader5, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/5/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader5, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/5/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader6" x="520" y="370" width="100" height="340" id="106" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="1989936" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.354331" send="29" osc_target="0" osc_trigger="1" osc_message="/track/6/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,106,106" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -653,112 +129,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader6/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader6/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader6/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader6, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader6, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader6, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader6, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader6, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader6, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader6, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader6, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader6, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader6, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader6, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader6, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader6, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader6, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader6, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader6, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader6, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader6, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader6, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader6, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader6, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader6, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader6, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader6, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader6, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader6, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/6/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader6, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/6/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader7" x="624" y="370" width="100" height="340" id="107" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="6109815" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.574803" send="29" osc_target="0" osc_trigger="1" osc_message="/track/7/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,107,107" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -767,112 +138,8 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader7/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader7/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader7/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader7, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader7, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader7, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader7, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader7, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader7, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader7, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader7, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader7, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader7, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader7, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader7, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader7, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader7, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader7, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader7, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader7, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader7, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader7, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader7, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader7, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader7, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader7, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader7, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader7, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader7, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/7/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader7, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));
+" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/7/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader8" x="728" y="370" width="100" height="340" id="108" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="2188159" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.440945" send="29" osc_target="0" osc_trigger="1" osc_message="/track/8/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,108,108" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -881,121 +148,16 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader8/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader8/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader8/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader8, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader8, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader8, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader8, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader8, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader8, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader8, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader8, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader8, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader8, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader8, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader8, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader8, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader8, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader8, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader8, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader8, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader8, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader8, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader8, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader8, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader8, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader8, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader8, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader8, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader8, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/8/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader8, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/8/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
-<WINDOW class="Fader" text="FaderMaster" x="835" y="370" width="100" height="286" id="109" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="3696952" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
+<WINDOW class="Fader" text="Master" x="835" y="370" width="100" height="286" id="109" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="3696952" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/master/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,109,109" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/master/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/FaderMaster/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/FaderMaster/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/FaderMaster/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/FaderMaster/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="Indicate(OSC_ARGS)" script="" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/Mixer/FaderMaster/Indicate" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Master/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Master/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Master/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Master/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Master, 'color', {OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]});" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/master/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="Solo1" x="0" y="268" width="49" height="48" id="111" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="2763277,8351749" label_off="S" label_on="S" outline="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/solo" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,80,80" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -1603,7 +765,7 @@ show(activewindow,0);
 <WINDOW class="Text" text="Text2" x="596" y="73" width="289" height="21" id="140" state="245" group="0" font="tahoma,14,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="8355711" content="Selected Device">
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/Text2/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
-<WINDOW class="Container" text="deviceControl" x="125" y="-12" width="884" height="743" id="102" state="4" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
+<WINDOW class="Container" text="deviceControl" x="125" y="-12" width="884" height="743" id="102" state="5" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Fader" text="Fader1" x="69" y="67" width="100" height="290" id="52" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4748671" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.473970" send="29" osc_target="0" osc_trigger="1" osc_message="/device/macro/1/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,61,61" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/macro/1/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -1621,7 +783,7 @@ show(activewindow,0);
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader2/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader3" x="269" y="67" width="100" height="290" id="54" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4748671" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.421922" send="29" osc_target="0" osc_trigger="1" osc_message="/device/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/macro/3/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader3/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader3/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -1690,7 +852,7 @@ show(activewindow,0);
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader10/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader11" x="269" y="424" width="100" height="290" id="71" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4751200" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.569803" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader11/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/deviceControl/Fader11/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -1843,7 +1005,7 @@ show(activewindow,0);
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/DeviceSelectRight/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="Device" x="0" y="433" width="125" height="52" id="101" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="4545663,8336134" label_off="Macros" label_on="Macros" outline="1">
-<PARAM name="x=" value="0.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/Device/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,23,23" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="1.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/Device/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,23,23" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/Device/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <SCRIPT name="control()" script="if (Device.x == 1) {
 show(deviceControl,1);
@@ -4136,7 +3298,7 @@ show(Track8DownControl,0);
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader3" x="269" y="67" width="100" height="290" id="113" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4748671" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.377953" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/3/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader3/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader3/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -4162,7 +3324,7 @@ show(Track8DownControl,0);
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader4" x="369" y="67" width="100" height="290" id="117" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4748671" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/4/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,64,64" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.204724" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/4/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,64,64" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/4/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader4/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader4/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -4188,7 +3350,7 @@ show(Track8DownControl,0);
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader5" x="469" y="67" width="100" height="290" id="121" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4748671" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/5/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,65,65" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.118110" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/5/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,65,65" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/device/param/5/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader5/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/directControl/Fader5/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -4412,7 +3574,7 @@ show(userControl,0);
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/userControl/Fader10/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader11" x="269" y="424" width="100" height="290" id="71" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4751200" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.569803" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/value" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,63,63" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/primary/macro/3/indicate" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/userControl/Fader11/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/userControl/Fader11/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5226,7 +4388,7 @@ if(track_recording[targettrack] != OSC_ARGS[1]){
 }" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/grid/track/recarm" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="controls" x="0" y="678" width="128" height="48" id="97" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="4545663,8353859" label_off="Controls" label_on="Controls" outline="0">
-<PARAM name="x=" value="1.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/controls/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,9,9" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/controls/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,9,9" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/controls/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <SCRIPT name="controls.x()" script="if (controls.x == 1) {
 show(controlswindow,1);
@@ -5237,7 +4399,7 @@ show(mixwindow,0);
 show(TransportControl,0);
 }" trigger_script="controls.x" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/controls/controls.x" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
 </WINDOW>
-<WINDOW class="Container" text="controlswindow" x="128" y="678" width="256" height="47" id="98" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
+<WINDOW class="Container" text="controlswindow" x="128" y="678" width="256" height="47" id="98" state="0" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="CustomButton" text="Gridshow" x="-10" y="-7" width="109" height="48" id="345" state="241" group="0" font="tahoma,15,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="4751200,8353859" label_off="Grid Control" label_on="Grid Control" outline="0">
 <PARAM name="x=" value="1.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/controlswindow/Gridshow/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/controlswindow/Gridshow/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5249,7 +4411,7 @@ show(GridControl,0);
 }" trigger_script="Gridshow.x" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/controlswindow/Gridshow/control" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="Mixershow" x="98" y="-7" width="60" height="48" id="517" state="241" group="0" font="tahoma,15,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="4545663,8353859" label_off="Mixer" label_on="Mixer" outline="0">
-<PARAM name="x=" value="0.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/controlswindow/Mixershow/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,22,22" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="1.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/controlswindow/Mixershow/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,22,22" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/controlswindow/Mixershow/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <SCRIPT name="mixcontrol()" script="if (Mixershow.x == 1) {
 show(mixwindow,1);
@@ -5267,7 +4429,7 @@ show(TransportControl,0);
 }" trigger_script="TransportShow.x" trigger_type="0" trigger="1" clock="0" clock_div="4" osc_message="/controlswindow/TransportShow/control" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
 </WINDOW>
 </WINDOW>
-<WINDOW class="Container" text="GridControl" x="342" y="192" width="361" height="264" id="498" state="5" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
+<WINDOW class="Container" text="GridControl" x="342" y="192" width="361" height="264" id="498" state="4" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="CustomButton" text="CustomButton2" x="113" y="161" width="113" height="80" id="1" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="8,8" capture="1" color="7433984,8353859" label_off="" label_on="" outline="0">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/scene/+" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,21,21" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/GridControl/CustomButton2/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5395,121 +4557,13 @@ show(TransportControl,0);
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader1" x="2" y="59" width="100" height="340" id="172" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7352904" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.598425" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.475120" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="8" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader1/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader1/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader1/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader1, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader1, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader1, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader1, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader1, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader1, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader1, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader1, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader1, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader1, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader1, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader1, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader1, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader1, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader1, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader1, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader1, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader1, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader1, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader1, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader1, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader1, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader1, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader1, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader1, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader1, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/1/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader1, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/1/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader2" x="111" y="59" width="100" height="340" id="173" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7680043" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.543307" send="29" osc_target="0" osc_trigger="1" osc_message="/track/2/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,102,102" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5518,112 +4572,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader2/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader2/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader2/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader2, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader2, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader2, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader2, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader2, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader2, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader2, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader2, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader2, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader2, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader2, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader2, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader2, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader2, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader2, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader2, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader2, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader2, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader2, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader2, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader2, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader2, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader2, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader2, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader2, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader2, 'color', lightsky);
-    return;
-}" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/2/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader2, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/2/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader3" x="223" y="59" width="100" height="340" id="174" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="6109815" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.299213" send="29" osc_target="0" osc_trigger="1" osc_message="/track/3/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,103,103" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5632,115 +4581,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader3/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader3/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader3/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader3, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader3, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader3, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader3, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader3, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader3, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader3, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader3, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader3, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader3, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader3, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader3, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader3, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader3, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader3, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader3, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader3, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader3, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader3, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader3, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader3, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader3, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader3, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader3, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader3, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader3, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/3/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader3, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/3/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader4" x="334" y="59" width="100" height="340" id="175" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="7428902" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.464567" send="29" osc_target="0" osc_trigger="1" osc_message="/track/4/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,104,104" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5749,115 +4590,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader4/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader4/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader4/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader4, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader4, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader4, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader4, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader4, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader4, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader4, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader4, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader4, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader4, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader4, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader4, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader4, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader4, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader4, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader4, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader4, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader4, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader4, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader4, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader4, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader4, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader4, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader4, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader4, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader4, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/4/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader4, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/4/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader5" x="445" y="59" width="100" height="340" id="176" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="5201701" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.598425" send="29" osc_target="0" osc_trigger="1" osc_message="/track/5/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,105,105" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5866,115 +4599,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader5/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader5/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader5/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader5, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader5, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader5, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader5, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader5, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader5, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader5, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader5, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader5, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader5, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader5, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader5, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader5, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader5, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader5, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader5, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader5, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader5, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader5, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader5, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader5, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader5, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader5, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader5, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader5, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader5, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/5/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader5, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/5/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader6" x="554" y="59" width="100" height="340" id="177" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="1989936" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.354331" send="29" osc_target="0" osc_trigger="1" osc_message="/track/6/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,106,106" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -5983,115 +4608,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader6/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader6/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader6/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader6, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader6, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader6, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader6, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader6, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader6, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader6, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader6, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader6, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader6, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader6, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader6, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader6, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader6, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader6, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader6, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader6, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader6, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader6, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader6, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader6, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader6, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader6, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader6, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader6, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader6, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/6/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader6, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/6/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader7" x="666" y="59" width="100" height="340" id="178" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4545663" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.574803" send="29" osc_target="0" osc_trigger="1" osc_message="/track/7/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,107,107" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -6100,115 +4617,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader7/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader7/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader7/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader7, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader7, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader7, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader7, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader7, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader7, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader7, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader7, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader7, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader7, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader7, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader7, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader7, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader7, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader7, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader7, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader7, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader7, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader7, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader7, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader7, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader7, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader7, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader7, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader7, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader7, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/7/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader7, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/7/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 <WINDOW class="Fader" text="Fader8" x="777" y="59" width="100" height="340" id="179" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="2188159" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
 <PARAM name="x=" value="0.440945" send="29" osc_target="0" osc_trigger="1" osc_message="/track/8/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,108,108" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -6217,118 +4626,10 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader8/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=0.9" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader8/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/mixwindow/Fader8/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="init(OSC_ARGS)" script="decl a = OSC_ARGS[0];
-
-if (a == 'RGB(0.3294117748737335,0.3294117748737335,0.3294117748737335)'){
-    setattribute(Fader8, 'color', darkgrey);
-    return;
-}
-else if ( a == 'RGB(0.47843137383461,0.47843137383461,0.47843137383461)'){
-    setattribute(Fader8, 'color', grey);
-    return;
-}
-else if ( a == 'RGB(0.7882353067398071,0.7882353067398071,0.7882353067398071)'){
-    setattribute(Fader8, 'color', lightgrey);
-    return;
-}
-else if ( a == 'RGB(0.5254902243614197,0.5372549295425415,0.6745098233222961)'){
-    setattribute(Fader8, 'color', greyblue);
-    return;
-}
-else if ( a == 'RGB(0.6392157077789307,0.4745098054409027,0.26274511218070984)'){
-    setattribute(Fader8, 'color', darkbrown);
-    return;
-}
-else if ( a == 'RGB(0.7764706015586853,0.6235294342041016,0.43921568989753723)'){
-    setattribute(Fader8, 'color', lightbrown);
-    return;
-}
-else if ( a == 'RGB(0.34117648005485535,0.3803921639919281,0.7764706015586853)'){
-    setattribute(Fader8, 'color', darkblue);
-    return;
-}
-else if ( a == 'RGB(0.5176470875740051,0.5411764979362488,0.8784313797950745)'){
-    setattribute(Fader8, 'color', lightblue);
-    return;
-}
-else if ( a == 'RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)'){
-    setattribute(Fader8, 'color', purple);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)'){
-    setattribute(Fader8, 'color', pink);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.18039216101169586,0.1411764770746231)'){
-    setattribute(Fader8, 'color', red);
-    return;
-}
-else if ( a == 'RGB(1,0.34117648005485535,0.0235294122248888)'){
-    setattribute(Fader8, 'color', orange);
-    return;
-}
-else if ( a == 'RGB(0.8509804010391235,0.615686297416687,0.062745101749897)'){
-    setattribute(Fader8, 'color', beige);
-    return;
-}
-else if ( a == 'RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)'){
-    setattribute(Fader8, 'color', gras);
-    return;
-}
-else if ( a == 'RGB(0,0.615686297416687,0.27843138575553894)'){
-    setattribute(Fader8, 'color', green);
-    return;
-}
-else if ( a == 'RGB(0,0.6509804129600525,0.5803921818733215)'){
-    setattribute(Fader8, 'color', aqua);
-    return;
-}
-else if ( a == 'RGB(0,0.6000000238418579,0.8509804010391235)'){
-    setattribute(Fader8, 'color', skyblue);
-    return;
-}
-else if ( a == 'RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)'){
-    setattribute(Fader8, 'color', lightpurple);
-    return;
-}
-else if ( a == 'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'){
-    setattribute(Fader8, 'color', porky);
-    return;
-}
-else if ( a == 'RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)'){
-    setattribute(Fader8, 'color', skin);
-    return;
-}
-else if ( a == 'RGB(1,0.5137255191802979,0.24313725531101227)'){
-    setattribute(Fader8, 'color', lightorange);
-    return;
-}
-else if ( a == 'RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)'){
-    setattribute(Fader8, 'color', lightbeige);
-    return;
-}
-else if ( a == 'RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)'){
-    setattribute(Fader8, 'color', lightgrass);
-    return;
-}
-else if ( a == 'RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)'){
-    setattribute(Fader8, 'color', lightgreen);
-    return;
-}
-else if ( a == 'RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)'){
-    setattribute(Fader8, 'color', lightaqua);
-    return;
-}
-else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
-    setattribute(Fader8, 'color', lightsky);
-    return;
-}/**
- * Created by Planet-X on 22.12.14.
- */
-" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/8/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
+<SCRIPT name="color(OSC_ARGS)" script="setattribute(Fader8, 'color', RGB(OSC_ARGS[0],OSC_ARGS[1],OSC_ARGS[2]));" trigger_script="" trigger_type="2" trigger="1" clock="0" clock_div="4" osc_message="/track/8/color" midi_message="0x90,0x90,0,0" midi_target="-1" flag="9"/>
 </WINDOW>
 </WINDOW>
-<WINDOW class="Container" text="TransportControl" x="384" y="678" width="640" height="47" id="509" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
+<WINDOW class="Container" text="TransportControl" x="384" y="678" width="640" height="47" id="509" state="0" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="CustomButton" text="StopButton" x="-1" y="-9" width="48" height="48" id="18" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="1,1" capture="1" color="8355711,8336134" label_off="Stop" label_on="Stop" outline="0">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/stop" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,117,117" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/TransportControl/StopButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -6338,11 +4639,11 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="light=0.5" send="0" osc_target="0" osc_trigger="1" osc_message="/TransportControl/LoopButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="PlayButton" x="47" y="-9" width="65" height="48" id="20" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="6,6" capture="1" color="8355711,8336134" label_off="Play" label_on="Play" outline="0">
-<PARAM name="x=" value="1.000000" send="29" osc_target="0" osc_trigger="4" osc_message="/play" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,118,118" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="4" osc_message="/play" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,118,118" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/TransportControl/PlayButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="RecButton" x="112" y="-9" width="48" height="48" id="21" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="2,3" capture="1" color="5308416,8388608" label_off="Record" label_on="Record" outline="0">
-<PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="4" osc_message="/record" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,119,119" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="1.000000" send="29" osc_target="0" osc_trigger="4" osc_message="/record" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,119,119" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/TransportControl/RecButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="OVRButton" x="256" y="-9" width="65" height="48" id="22" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="0,0" capture="1" color="8355711,8336134" label_off="OVR" label_on="OVR" outline="0">
@@ -6370,7 +4671,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 </WINDOW>
 </WINDOW>
 <WINDOW class="CustomButton" text="CustomButton" x="0" y="0" width="128" height="48" id="510" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="4545663,1596013" label_off="Refresh" label_on="Refresh" outline="0">
-<PARAM name="x=" value="0.000000" send="25" osc_target="0" osc_trigger="1" osc_message="/refresh" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,11,11" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="1.000000" send="25" osc_target="0" osc_trigger="1" osc_message="/refresh" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,11,11" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/CustomButton/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 </WINDOW>
@@ -7046,8 +5347,8 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <WINDOW class="JAZZINTERFACE" text="06. XY" x="0" y="0" width="1024" height="724" id="3" state="0" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Container" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Multiball" text="Multiball1" x="-2" y="509" width="218" height="200" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="8336134" cursor="1" ephemere="0" grid="0" grid_steps="1,1" label="0" multicolor="1" multilabel="0" nbr="1" physic="0" polyphony="0" zoom="1.000000">
-<PARAM name="x=" value="0.462500" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<PARAM name="y=" value="0.957746" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/y" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,4,4" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="y=" value="0.000000" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/y" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,4,4" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="28" osc_target="0" osc_trigger="1" osc_message="/user/param/4/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=Attraction.x" send="0" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=Friction.x" send="0" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -7417,7 +5718,7 @@ setattribute(Multiball4, 'physic', x*2);" trigger_script="x" trigger_type="0" tr
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/Container/TransposeDown/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="Multiball" text="Multiball2" x="216" y="509" width="218" height="200" id="121" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4545663" cursor="1" ephemere="0" grid="0" grid_steps="1,1" label="0" multicolor="1" multilabel="0" nbr="1" physic="0" polyphony="0" zoom="1.000000">
-<PARAM name="x=" value="1.000000" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball2/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.000000" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball2/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="y=" value="0.000000" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball2/y" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,4,4" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="28" osc_target="0" osc_trigger="1" osc_message="/user/param/4/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=Attraction.x" send="0" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball2/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -7490,33 +5791,4 @@ setattribute(Multiball4, 'physic', x*2);" trigger_script="x" trigger_type="0" tr
 </WINDOW>
 </WINDOW>
 </WINDOW>
-<VARIABLE name="darkgrey=RGB(0.3294117748737335, 0.3294117748737335, 0.3294117748737335)" send="1" osc_target="0" osc_trigger="1" osc_message="/darkgrey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="-24218,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="grey=RGB(0.47843137383461, 0.47843137383461, 0.47843137383461)" send="1" osc_target="0" osc_trigger="1" osc_message="/grey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="5733,-2591,22" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightgrey=RGB(0.7882353067398071, 0.7882353067398071, 0.7882353067398071)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightgrey" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="24934,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="greyblue=RGB(0.5254902243614197, 0.5372549295425415, 0.6745098233222961)" send="1" osc_target="0" osc_trigger="1" osc_message="/greyblue" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="darkbrown=RGB(0.6392157077789307, 0.4745098054409027, 0.26274511218070984)" send="1" osc_target="0" osc_trigger="1" osc_message="/darkbrown" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="5600,-2591,22" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightbrown=RGB(0.7764706015586853, 0.6235294342041016, 0.43921568989753723)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightbrown" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="darkblue=RGB(0.34117648005485535, 0.3803921639919281, 0.7764706015586853)" send="1" osc_target="0" osc_trigger="1" osc_message="/darkblue" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightblue=RGB(0.5176470875740051, 0.5411764979362488, 0.8784313797950745)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightblue" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="22,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="purple=RGB(0.5843137502670288,0.2862745225429535,0.7960784435272217)" send="1" osc_target="0" osc_trigger="1" osc_message="/purple" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="pink=RGB(0.8509804010391235,0.21960784494876862,0.4431372582912445)" send="1" osc_target="0" osc_trigger="1" osc_message="/pink" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="red=RGB(0.8509804010391235, 0.18039216101169586, 0.1411764770746231)" send="1" osc_target="0" osc_trigger="1" osc_message="/red" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="orange=RGB(1,0.34117648005485535,0.0235294122248888)" send="1" osc_target="0" osc_trigger="1" osc_message="/orange" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="beige=RGB(0.8509804010391235,0.615686297416687,0.062745101749897)" send="1" osc_target="0" osc_trigger="1" osc_message="/beige" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="23,3,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="gras=RGB(0.45098039507865906,0.5960784554481506,0.0784313753247261)" send="1" osc_target="0" osc_trigger="1" osc_message="/gras" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="22,2,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="green=RGB(0,0.615686297416687,0.27843138575553894)" send="1" osc_target="0" osc_trigger="1" osc_message="/green" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="aqua=RGB(0,0.6509804129600525,0.5803921818733215)" send="1" osc_target="0" osc_trigger="1" osc_message="/aqua" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="22,1,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="skyblue=RGB(0,0.6000000238418579,0.8509804010391235)" send="1" osc_target="0" osc_trigger="1" osc_message="/skyblue" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="22,1,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightpurple=RGB(0.7372549176216125,0.4627451002597809,0.9411764740943909)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightpurple" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="12638,-3248,5482" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="porky=RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)" send="1" osc_target="0" osc_trigger="1" osc_message="/porky" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="5751,68,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="skin=RGB(0.9254902005195618,0.3803921639919281,0.34117648005485535)" send="1" osc_target="0" osc_trigger="1" osc_message="/skin" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightorange=RGB(1,0.5137255191802979,0.24313725531101227)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightorange" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="20838,2,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightbeige=RGB(0.8941176533699036,0.7176470756530762,0.30588236451148987)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightbeige" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="8548,10535,2683" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightgrass=RGB(0.6274510025978088,0.7529411911964417,0.2980392277240753)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightgrass" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="22,0,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightgreen=RGB(0.24313725531101227,0.7333333492279053,0.3843137323856354)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightgreen" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightaqua=RGB(0.26274511218070984,0.8235294222831726,0.7254902124404907)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightaqua" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="12637,2,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="lightsky=RGB(0.2666666805744171,0.7843137383460999,1)" send="1" osc_target="0" osc_trigger="1" osc_message="/lightsky" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="13362,12595,14131" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="track1=" value="'RGB(0.8823529481887817,0.4000000059604645,0.5686274766921997)'" send="9" osc_target="0" osc_trigger="1" osc_message="/track/1/color" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,640,0" kbmouse_scale="0,1,0,1"/>
-<VARIABLE name="black=RGB(0,0,0)" send="1" osc_target="0" osc_trigger="1" osc_message="/black" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
-<SCRIPT name="colors()" script="" trigger_script="" trigger_type="4" trigger="1" clock="0" clock_div="4" osc_message="/colors" midi_message="0x90,0x90,0,0" midi_target="-1" flag="1"/>
 </JZML>
