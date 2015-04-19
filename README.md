@@ -23,7 +23,7 @@ Current features:
 6. Keys page, Modwheel/Pitchbend/Breath/Expression/After Touch with friction and tension control using Lemur physics
 7. X/Y page, now with Lemur physics control and special note pads
 
-Preview: https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/Lemur4Bitwig-Template-1.5.gif
+
 
 ===========
 
