@@ -4548,7 +4548,7 @@ show(userControl,0);
 </WINDOW>
 </WINDOW>
 <WINDOW class="CustomButton" text="DeviceWindow" x="0" y="307" width="125" height="64" id="118" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="0" bitmap="0,0" capture="1" color="8353859,1603624" label_off="Device Window" label_on="Device Window" outline="1">
-<PARAM name="x=" value="0.000000" send="25" osc_target="0" osc_trigger="1" osc_message="/device/window" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,10,10" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="1.000000" send="25" osc_target="0" osc_trigger="1" osc_message="/device/window" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,10,10" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/DeviceContainer/DeviceWindow/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="CustomButton" text="DeviceSelectLeft2" x="0" y="204" width="125" height="52" id="141" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="0,0" capture="1" color="6193004,6193004" label_off="P.Device -" label_on="P.Device -" outline="1">
@@ -6530,7 +6530,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/Pads16/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="05. Keys" x="0" y="0" width="1024" height="724" id="1" state="0" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="05. Keys" x="0" y="0" width="1024" height="724" id="1" state="1" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Keyboard" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Pads" text="Key1" x="0" y="61" width="110" height="300" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="5197647,8336134" column="1" label="0" multicolor="0" multilabel="0" row="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/note/36" midi_target="0" midi_trigger="1" midi_message="0x90,0x90,36,36" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -6665,7 +6665,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="speed=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/Breath/speed" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="Fader" text="Modwheel" x="785" y="64" width="100" height="300" id="24" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="3696952" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.643154" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/cc/2" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,8,8" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.643154" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/cc/1" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,8,8" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/Keyboard/Modwheel/z" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,9,9" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/Modwheel/value" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/Modwheel/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -6681,7 +6681,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/PB_Tension_up/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 <WINDOW class="MultiSlider" text="bend" x="901" y="53" width="100" height="319" id="28" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" bipolar="1" capture="1" color="8336134" gradient="1" grid="0" grid_steps="1" horizontal="0" label="0" multicolor="0" nbr="1" physic="1">
-<PARAM name="x=" value="0.602487" send="17" osc_target="0" osc_trigger="1" osc_message="/Keyboard/bend/x" midi_target="0" midi_trigger="1" midi_message="0xE0,0xE0,0,0" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-2" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.554992" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/pitchbend" midi_target="0" midi_trigger="1" midi_message="0xE0,0xE0,0,0" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-2" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="17" osc_target="0" osc_trigger="1" osc_message="/Keyboard/bend/z" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="tension=PB_Tension_up.x" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/bend/tension" midi_target="-1" midi_trigger="1" midi_message="0x90,0x0,0,0" midi_scale="0,16383" kbmouse_target="-2" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="friction=PB_Friction_up.x" send="0" osc_target="0" osc_trigger="1" osc_message="/Keyboard/bend/friction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x0,0,0" midi_scale="0,16383" kbmouse_target="-2" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -7043,7 +7043,7 @@ else if ( a == 'RGB(0.2666666805744171,0.7843137383460999,1)'){
 </WINDOW>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="06. XY" x="0" y="0" width="1024" height="724" id="3" state="1" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="06. XY" x="0" y="0" width="1024" height="724" id="3" state="0" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Container" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Multiball" text="Multiball1" x="-2" y="509" width="218" height="200" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="8336134" cursor="1" ephemere="0" grid="0" grid_steps="1,1" label="0" multicolor="1" multilabel="0" nbr="1" physic="0" polyphony="0" zoom="1.000000">
 <PARAM name="x=" value="0.462500" send="21" osc_target="0" osc_trigger="1" osc_message="/Container/Multiball1/x" midi_target="0" midi_trigger="1" midi_message="0xB0,0xB0,2,2" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
