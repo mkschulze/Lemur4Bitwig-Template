@@ -4,10 +4,10 @@ Lemur4Bitwig Template .1 Up (Beta5)
 
 
 Next round for the new Lemur4Bitwig template. This time we got a brand new cliplauncher made in a unified Bitwig design
-based on canvas. Due to the team up with Voice303, who is kindly lemurizing the OSC4Bitwig script by Moss and shares
+based on canvas. Due to the team up with <a href="https://github.com/csvance/Lemur4Bitwig">Voice303</a>, who is kindly lemurizing the <a href="https://github.com/git-moss/OSC4Bitwig">OSC4Bitwig</a> script by <a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html">Moss</a> and shares
 his skills on canvas for us, we will see further objects coming. There is also a new XY performance page and 
-a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Breath/Expression and After Touch control
-and a few user request to the device page.
+a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Breath/Expression and After Touch control and a few user request to the device page.</p>
+
 
 
 
@@ -42,14 +42,13 @@ cheers Mark
 
 Installation on Win/Mac/Linux:
 
-1. Grab the script by Voice 303 here: https://github.com/csvance/Lemur4Bitwig
+1. Grab the script by Voice 303 here: <a href="https://github.com/csvance/Lemur4Bitwig">here</a>
 2. Put it into your controler script folder.
 3. Go to the Bitwig preferences and add Liine Lemur script, make sure to delete the Open Sound Control setup, if you 
    previously used the OSC4Bitwig script.
-4. Type in your device (iPad/Android) IP and Portnumber 8000, see screenshot: 
-   https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/Lemur-Setup.png
+4. Type in your device (iPad/Android) IP and Portnumber 8000, see screenshot:<a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/Lemur-Setup.png">here</a></li>
 5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
-   See Screenshot: https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0
+   See Screenshot: <a href="https://www.dropbox.com/s/wu221qetaf2blzd/2014-12-06%2014.34.20.jpg?dl=0">here</a>
 6. Restart Bitwig
 Done!
 
