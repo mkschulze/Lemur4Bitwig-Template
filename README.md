@@ -42,7 +42,7 @@ cheers Mark
 
 Installation on Win/Mac/Linux:
 
-1. Grab the script by Voice 303 here: <a href="https://github.com/csvance/Lemur4Bitwig">here</a>
+1. Grab the script by Voice 303: <a href="https://github.com/csvance/Lemur4Bitwig">here</a>
 2. Put it into your controler script folder.
 3. Go to the Bitwig preferences and add Liine Lemur script, make sure to delete the Open Sound Control setup, if you 
    previously used the OSC4Bitwig script.
