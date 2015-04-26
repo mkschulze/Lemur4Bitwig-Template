@@ -764,7 +764,7 @@ show(actionShow,0);
 </WINDOW>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="02. Devices" x="0" y="0" width="1024" height="724" id="2" state="1" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="02. Devices" x="0" y="0" width="1024" height="724" id="2" state="0" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="DeviceContainer" x="0" y="0" width="1025" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Container" text="Container3" x="579" y="130" width="306" height="39" id="152" state="1" group="1" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="20003" label="1" tabbar="1" meta="0">
 <WINDOW class="Monitor" text="Monitor7" x="0" y="-6" width="289" height="39" id="148" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="7428902" label="0" precision="3" unit="" value="1">
@@ -5045,7 +5045,7 @@ show(TransportControl,0);
 <VARIABLE name="light=0" send="0" osc_target="0" osc_trigger="1" osc_message="/Pads16/light" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="05. Keys" x="0" y="0" width="1024" height="724" id="1" state="0" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="05. Keys" x="0" y="0" width="1024" height="724" id="1" state="1" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Keyboard" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Pads" text="Key1" x="0" y="61" width="110" height="300" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="5197647,8336134" column="1" label="0" multicolor="0" multilabel="0" row="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/note/36" midi_target="0" midi_trigger="1" midi_message="0x90,0x90,36,36" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
