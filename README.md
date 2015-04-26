@@ -15,13 +15,18 @@ a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Brea
 
 Current features:
 
-1. Mixer page, with track & master volume faders, transport, track/bank selection, mute/solo/rec, crossfades, tempo,
-   track activation, panel modes, arranger modes, mixer modes, add tracks, metronome
-2. Device page, device/common/user/direct/sends mode, load preset- /category- and creator switch, vst open/close
-3. Totally new Clip Launcher page!
-5. Pad page, 16x Drum Pads
-6. Keys page, Modwheel/Pitchbend/Breath/Expression/After Touch with friction and tension control using Lemur physics
-7. X/Y page, now with Lemur physics control and special note pads
+1.  Mixer page, with track & master volume faders, transport, track/bank selection, mute/solo/rec, crossfades, tempo,
+    track activation, panel modes, arranger modes, mixer modes, add tracks, metronome
+2.  Device page, device/common/user/direct/sends mode, load preset- /category- and creator switch, vst open/close
+3.  Totally new Clip Launcher page!
+5.  Pad page, 16x Drum Pads
+6.  Keys page, Modwheel/Pitchbend/Breath/Expression/After Touch with friction and tension control using Lemur physics
+7.  X/Y page, now with Lemur physics control and special note pads
+8.  New Actions on the Mixer Page - Save/Restart/Undo/Redo/Toggle Trackbank
+9.  Toggle Trackbank lets you switch from Audio/Instrument control to FX Track control
+10. Tracknames now show up on the device page
+11. On the Keyboard we now have visual feedback of the notes that are played back - select a track and a clip, draw some 
+    notes in it - start playback and enjoy the show! 
 
 
 
