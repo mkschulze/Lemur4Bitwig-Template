@@ -1,4 +1,4 @@
-Lemur4Bitwig Template .1 Up (Beta5)
+Lemur4Bitwig Template .1 Up (Beta6)
 ===========
 
 
