@@ -53,7 +53,7 @@ Installation on Win/Mac/Linux:
    previously used the OSC4Bitwig script.
 4. Type in your device (iPad/Android) IP and Portnumber 8000, see screenshot:<a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/Lemur-Setup.png">here</a></li>
 5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
-   See Screenshot: <a href="hhttps://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/2014-12-06%2014.34.20.jpg">here</a>
+   See Screenshot: <a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/2014-12-06%2014.34.20.jpg">here</a>
 6. Restart Bitwig
 Done!
 
