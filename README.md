@@ -1,12 +1,12 @@
-Lemur4Bitwig Template .1 Up (Beta6)
+Lemur4Bitwig Template .1 Up (Stable)
 ===========
 
 
 
-Next round for the new Lemur4Bitwig template. This time we got a brand new cliplauncher made in a unified Bitwig design
-based on canvas. Due to the team up with <a href="https://github.com/csvance/Lemur4Bitwig">Voice303</a>, who is kindly lemurizing the <a href="https://github.com/git-moss/OSC4Bitwig">OSC4Bitwig</a> script by <a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html">Moss</a> and shares
-his skills on canvas for us, we will see further objects coming. There is also a new XY performance page and 
-a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Breath/Expression and After Touch control and a few user request to the device page.</p>
+The stable release of the Lemur4Bitwig Template & Script is now out for download. Thanks to <a href="https://github.com/csvance/Lemur4Bitwig">Voice303</a> who managed to massivly improve stability and performance.
+The Lemur4Bitwig script is a Lemur optimized version of the <a href="https://github.com/git-moss/OSC4Bitwig">OSC4Bitwig</a> script by <a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html">Moss</a>.</p>
+In this version you find a toggle button, wich lets you switch the mixer channels from Audio/Instrument tracks to Effect tracks, also a new device page and as already said, everything lightning fast.
+Find out more by checking out..
 
 
 
@@ -16,7 +16,7 @@ a new virtual keyboard page, with several additions like Modwheel/Pitchbend/Brea
 Current features:
 
 1.  Mixer page, with track & master volume faders, transport, track/bank selection, mute/solo/rec, crossfades, tempo,
-    track activation, panel modes, arranger modes, mixer modes, add tracks, metronome
+    track activation, panel modes, arranger modes, mixer modes, add tracks, metronome, save, undo/redo , toggle banks
 2.  Device page, device/common/user/direct/sends mode, load preset- /category- and creator switch, vst open/close
 3.  Totally new Clip Launcher page!
 5.  Pad page, 16x Drum Pads
@@ -32,7 +32,7 @@ Current features:
 
 ===========
 
-To be done before full release:
+To be done after 1.2 release:
 
 1. New Drumpad page
 2. Nexus Version
