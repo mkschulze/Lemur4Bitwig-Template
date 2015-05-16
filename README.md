@@ -25,8 +25,7 @@ Current features:
 8.  New Actions on the Mixer Page - Save/Restart/Undo/Redo/Toggle Trackbank
 9.  Toggle Trackbank lets you switch from Audio/Instrument control to FX Track control
 10. Tracknames now show up on the device page
-11. On the Keyboard we now have visual feedback of the notes that are played back - select a track and a clip, draw some 
-    notes in it - start playback and enjoy the show! 
+ 
 
 
 
