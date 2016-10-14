@@ -20,13 +20,6 @@ Current features:
 2.  Keys page, Modwheel/Pitchbend/Breath/Expression/After Touch with friction and tension control using Lemur physics
 3.  Compatible with Bitwig 1.3.x
 
-
-
-have fun!
-
-cheers Mark
-
-===========
 ===========
 
 Installation on Win/Mac/Linux:
