@@ -1,6 +1,6 @@
 <JZML>
 <PROJECT version="5320" width="1024" height="724" osc_target="0" midi_target="-1" kbmouse_target="-1" skin="Classic"/>
-<WINDOW class="JAZZINTERFACE" text="01. Mixer" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="1.Mixer" x="0" y="0" width="1024" height="724" state="0" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Mixer" x="0" y="0" width="1024" height="724" id="1" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="CustomButton" text="StopButton" x="0" y="0" width="100" height="100" id="18" state="241" group="0" font="tahoma,20,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" behavior="1" bitmap="1,1" capture="1" color="4545663,2097152" label_off="Stop" label_on="Stop" outline="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/stop" midi_target="-1" midi_trigger="2" midi_message="0xB0,0xB0,117,117" midi_scale="0,16383" osc_scale="0.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -77,7 +77,7 @@
 </WINDOW>
 </WINDOW>
 <WINDOW class="Fader" text="Fader1" x="0" y="410" width="73" height="300" id="101" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="8334082" cursor="0" grid="0" grid_steps="1" label="0" physic="1" precision="3" unit="" value="0" zoom="1.000000">
-<PARAM name="x=" value="0.683186" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
+<PARAM name="x=" value="0.536048" send="29" osc_target="0" osc_trigger="1" osc_message="/track/1/volume" midi_target="-1" midi_trigger="1" midi_message="0xB0,0xB0,101,101" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <PARAM name="z=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" osc_scale="1.000000,1.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="value=x" send="8" osc_target="0" osc_trigger="1" osc_message="/track/indicate/volume" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
 <VARIABLE name="attraction=1" send="0" osc_target="0" osc_trigger="1" osc_message="/Mixer/Fader1/attraction" midi_target="-1" midi_trigger="1" midi_message="0x90,0x90,0,0" midi_scale="0,16383" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
@@ -2013,7 +2013,7 @@ setexpression(led9,'value',1);
 </WINDOW>
 </WINDOW>
 </WINDOW>
-<WINDOW class="JAZZINTERFACE" text="04. Keys" x="0" y="0" width="1024" height="724" id="1" state="0" group="0" font="tahoma,11,0" >
+<WINDOW class="JAZZINTERFACE" text="2.Keys" x="0" y="0" width="1024" height="724" id="1" state="1" group="0" font="tahoma,11,0" >
 <WINDOW class="Container" text="Keyboard" x="0" y="0" width="1024" height="724" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" color="4545663" label="1" tabbar="1" meta="0">
 <WINDOW class="Pads" text="Key1" x="0" y="61" width="110" height="300" state="1" group="0" font="tahoma,10,0" send="1" osc_target="-2" midi_target="-2" kbmouse_target="-2" capture="1" color="4089727,8336134" column="1" label="0" multicolor="0" multilabel="0" row="1">
 <PARAM name="x=" value="0.000000" send="29" osc_target="0" osc_trigger="1" osc_message="/vkb_midi/0/note/36" midi_target="0" midi_trigger="1" midi_message="0x90,0x90,36,36" midi_scale="0,16383" osc_scale="0.000000,127.000000" kbmouse_target="-1" kbmouse_trigger="1" kbmouse_message="0,0,0" kbmouse_scale="0,1,0,1"/>
