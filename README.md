@@ -1,4 +1,5 @@
 Lemur4Bitwig Template 1.1 (Stripped Down)
+Now ready for Bitwig 2.1.1
 ===========
 
 
@@ -27,7 +28,7 @@ Installation on Win/Mac/Linux:
 1. Grab the Drivenbymoss.zip by Moss: <a href="http://www.mossgrabers.de/Software/Bitwig/Bitwig.html">here</a>
 2. Follow the install instructions <a href="https://github.com/git-moss/DrivenByMoss/wiki/Installation">here</a>
 3. Go to the Bitwig preferences and add Open Sound Control (OSC) script.
-4. Type in your device (iPad/Android) IP and Portnumber 8000, see screenshot:<a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/Bitwig-setup.png">here</a></li>
+4. Type in your device (iPad/Android) IP and Portnumber 8000. See screenshot:<a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/Bitwig-setup.png">here</a></li>
 5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
    See Screenshot: <a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/Lemur-setup.png">here</a>  
 6. Restart Bitwig
