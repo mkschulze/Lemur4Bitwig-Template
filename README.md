@@ -31,7 +31,7 @@ Installation on Win/Mac/Linux:
 5. In Lemur, type in your host IP as OSC Target 0 and port 8000.
    See Screenshot: <a href="https://raw.githubusercontent.com/Lucid-Network/Lemur4Bitwig-Template/master/images/Lemur-setup.png">here</a>  
 6. Restart Bitwig
-7. Make sure you do not block port 8000 in your firewall if it doesn't work. 
+7. Make sure you do not block port 8000 in your firewall if it doesn't work.
 
 
 For discussion or help, please refer to this thread on
